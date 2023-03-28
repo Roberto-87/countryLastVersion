@@ -1,0 +1,20 @@
+.card_container{
+  /*   color:#979DAC; */
+    padding-top:10px ;
+    width: fit-content;
+   background-color: #aeb0b500;
+   color: white;
+}    
+
+.flag{
+    box-shadow: 3px 3px 1px  rgba(218, 215, 215, 0.039);
+    border: 1px solid rgba(255, 255, 255, 0.297);
+}
+
+.name{
+    font-size: 1rem;
+}
+
+.continent{
+    margin-top: 0px;
+}

@@ -1,0 +1,26 @@
+*{
+    text-decoration: none;
+    list-style: none;
+
+}
+
+.navbar__Container{
+    display: flex;
+    justify-content:start;   
+    background-color: #112a4628;
+    padding: 2px;
+    align-items: center;
+    
+    
+}
+
+.navbar__Container a {
+    color:   rgb(193, 184, 184);
+}
+
+.navbar_link{
+margin-left: 2%;
+margin-right: 1%;
+font-size: 1em;
+
+}

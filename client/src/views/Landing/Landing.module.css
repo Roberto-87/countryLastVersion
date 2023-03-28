@@ -1,0 +1,61 @@
+body{
+    
+    background:linear-gradient(rgba(0, 0, 0, 0.591), rgba(0, 0, 0, 0.5)), url('../../views/Landing/background_holograma.jpg')  ;
+    background-size: 100%;
+    background-color: #cccccc;
+    background-size: cover;
+    background-repeat: no-repeat, repeat;
+
+    
+}
+
+@media only screen and (min-width: 600px) {
+    body {
+        background-repeat: repeat;
+    }
+  }
+
+.landing_container{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    
+}
+
+
+.link__container{
+    display: flex;
+    justify-content: center;
+    border-radius: 5%;  
+    width: 50%;
+    margin-left: 25%;    
+    
+}
+
+.landing_link{
+    color: #f3f3f3;
+    border: 0.8px solid #23222c29;
+    box-shadow: 0.1px 2px 1px  #9c9393;
+    width: 100%;
+    transition: ease 3s;
+    padding: 2%;
+    border-radius: 2%;
+    /* background-color: #023E7D; */
+    background-color:  #0d0d0d77;;
+   /*  background-color:  #0d0d0dbb;; */
+    font-size: 1.5rem;
+    transition: ease 2s;
+  
+}
+.AppTitle{
+/*    color: #67affc;  */
+   color: #61dafb;
+
+}
+
+
+.landing_link:hover{
+    background-color: #4847526d;
+    border: 0.8px solid #2f2e3b6d;
+    
+}
