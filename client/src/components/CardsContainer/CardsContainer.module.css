@@ -5,6 +5,7 @@
     flex-wrap: wrap;
     justify-content: space-around;
     gap: 5px;
+
     
 }
 .filter_container{
@@ -17,4 +18,30 @@
 .option_activities{
     width: 30px;
     
+}
+.option_container{
+   border-radius: 40px 40px;
+   background-color: rgba(0, 0, 0, 0);
+   color: white;
+   margin-left: 3px;
+   font-family: 'Dosis', sans-serif;
+   align-items: center;
+     border: none; 
+     background-color: rgba(0, 0, 0, 0.409);
+  
+}
+
+.resetButton{
+    background-color: rgba(0, 0, 0, 0.409);
+    border: none;
+}
+
+.pagination{
+    font-family: 'Dosis', sans-serif;
+    background-color: rgba(0, 0, 0, 0);
+    border: none;
+    color: rgb(255, 255, 255);
+    margin-left: 6px;
+    border-radius: 40px 40px;
+    padding-bottom: 2px;
 }

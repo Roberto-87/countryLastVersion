@@ -15,7 +15,7 @@ const SearchBar=()=>{
     return(
         <form className={style.searchBar_container}>
             <label htmlFor="">
-                <input className={style.search} value={searchCountry} onChange={onHandlerChange} type='search'  placeholder="ingresa el nombre del país"/>
+                <input className={style.search} value={searchCountry} onChange={onHandlerChange} type='search'  placeholder=" Buscar"/>
             </label>
             <div>
       

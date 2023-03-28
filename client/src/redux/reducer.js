@@ -44,12 +44,12 @@ const reducer = (state = initialState, action) => {
       if (!state.countryByContinent.length) {
         return {
           ...state,
-          countryByPopulation:
+          countries:
             action.payload === "Ascendente"
               ? state.countries?.sort((a, b) => a.population - b.population)
               : state.countries?.sort((a, b) => b.population - a.population),
         };
-      } else {
+      } else if (state.countryByContinent.length) {
         return {
           ...state,
           countryByPopulation:
@@ -62,6 +62,7 @@ const reducer = (state = initialState, action) => {
                 ),
         };
       }
+
     case ORDER_COUNTRY:
       if (!state.countryByContinent.length) {
         return {
@@ -71,7 +72,7 @@ const reducer = (state = initialState, action) => {
               ? state.countries?.sort((a, b) => a.name.localeCompare(b.name))
               : state.countries?.sort((a, b) => b.name.localeCompare(a.name)),
         };
-      } else if (state.countryByContinent.length) {
+      } else if (state.countryByContinent) {
         return {
           ...state,
           countryByPopulation:
@@ -83,7 +84,16 @@ const reducer = (state = initialState, action) => {
                   b.name.localeCompare(a.name)
                 ),
         };
+      } else if (!state.countryByContinent && state.population) {
+        return {
+          ...state,
+          countryByAlpha:
+            action.payload === "Ascendente"
+              ? state.countries?.sort((a, b) => a.name.localeCompare(b.name))
+              : state.countries?.sort((a, b) => b.name.localeCompare(a.name)),
+        };
       }
+
     case FILTER_BY_ACTIVITY:
       if (state.countryByContinent.length) {
         const filteredCountriesByContinent = state.countryByContinent.filter(

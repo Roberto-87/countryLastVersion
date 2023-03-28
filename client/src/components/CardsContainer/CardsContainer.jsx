@@ -5,6 +5,7 @@ import {useSelector, useDispatch} from 'react-redux';
 import {cleanDetail,getActivities, filterByContinent,orderByPopulation, filterByActivity, orderCountries} from '../../redux/actions'
 import { useEffect, useState } from 'react';
 
+
 const CardsContainer=()=>{
    const dispatch= useDispatch()
    const {countries,  countryByActivity,countryByAlpha, countryByContinent,activities }= useSelector(state=>state)  
@@ -19,10 +20,11 @@ const CardsContainer=()=>{
    const [pageFirst, setPageFirst]= useState(1)// del 1 al 10
    const [pageNext, setPageNext]= useState(2)// del 11 al 21
    const [results, setResults]= useState(1)
-   const [nextResult, setNextResult]= useState(11)     
+   const [nextResult, setNextResult]= useState(11) 
+
       
    const onHandlerChange=(event)=>{
-        setContinent(event.target.value)
+           setContinent(event.target.value)
         dispatch(filterByContinent(event.target.value))
         }
    const onHandlerOrdePopulation=(e)=>{
@@ -87,10 +89,10 @@ const CardsContainer=()=>{
   
     return(
         <>
-        <div className={style.filter_container}>
-                 
-        <select  onChange={onHandlerChange} className={style.option_container}>
-                <option value={"continent"} disabled="disabled" selected>Continente</option>
+
+            <div className={style.filter_container}>
+        <select onChange={onHandlerChange} className={style.option_container}>
+                <option value={"continent"}  selected>Continente</option>
                 <option value="Americas">América</option>
                 <option value="Antarctic">Antártida</option>
                 <option value="Europe">Europa</option>
@@ -98,28 +100,29 @@ const CardsContainer=()=>{
                 <option value="Oceania">Oceania</option>
                 <option value="Africa">Africa</option>
         </select>
-        <select  onChange={onHandlerOrdePopulation}>
+
+        <select  onChange={onHandlerOrdePopulation} className={style.option_container}>
                 <option value="population" disabled="disabled" selected>Población</option>
                 <option value="Ascendente">Ascendente</option>
                 <option value="Descendente">Descedente</option>
         </select>
-        <select onChange={onHandlerOrder}>
+        <select onChange={onHandlerOrder} className={style.option_container}>
                 <option value={"alphabetical"} disabled="disabled" selected>Orden alfabético</option>
                 <option value="Ascendente">Ascendente</option>
                 <option value="Descendente">Descedente</option>
         </select>
 
-        <select onClick={onHandleActivity}  onChange={onHandlerActivityCountry}>
+        <select onClick={onHandleActivity}  onChange={onHandlerActivityCountry} className={style.option_container}>
         <option value={"activity"}  selected>Actividades</option>
             { activities && activities?.map(act=> <option key={act.id} value={act.id}   className={style.option_activities}>{act?.nombre}</option>)}
         </select>
    
-        <button onClick={OnHandlerReset} >🔄 </button>
+        <button onClick={OnHandlerReset}className={style.resetButton} >🔄 </button>
         </div>
         <br />
 
-        {results > 1 && !continent &&  !population && <button onClick={onHandlerBefore}>Anterior</button>}
-        {results < 239 && !continent &&  !population && <button onClick={onHandlerClick}> Siguiente</button>}
+        {results > 1 && !continent &&  !population && <button className={style.pagination} onClick={onHandlerBefore}>Anterior</button>}
+        {results < 239 && !continent &&  !population && <button className={style.pagination} onClick={onHandlerClick}> Siguiente</button>}
 
         <div className={style.cards_container}>
 {       
@@ -235,8 +238,20 @@ const CardsContainer=()=>{
               image={country?.image}
               name={country?.name} 
               continent={country?.continent}
-      />) :
-
+      />) 
+      :    ! activity && !continent && population && alphabetical
+      ? 
+      countries?.map((country)=> 
+      <Card 
+             
+             key={country?.id}     
+             id= {country?.id}   
+             image={country?.image}
+             name={country?.name} 
+             continent={country?.continent}
+     />) 
+           
+      :
         countryByContinent?.map((country)=> 
         <Card 
                 key={country?.id}     
@@ -245,7 +260,7 @@ const CardsContainer=()=>{
                 name={country?.name} 
                 continent={country?.continent}
         />) 
- 
+      
         }
         </div>
 
