@@ -63,6 +63,7 @@ const reducer = (state = initialState, action) => {
         };
       }
 
+    // eslint-disable-next-line no-fallthrough
     case ORDER_COUNTRY:
       if (!state.countryByContinent.length) {
         return {
@@ -94,6 +95,7 @@ const reducer = (state = initialState, action) => {
         };
       }
 
+    // eslint-disable-next-line no-fallthrough
     case FILTER_BY_ACTIVITY:
       if (state.countryByContinent.length) {
         const filteredCountriesByContinent = state.countryByContinent.filter(
