@@ -17,7 +17,7 @@ import axios from "axios";
 export const getCountries = () => {
   return async function (dispatch) {
     // applyMiddleware(thunk)
-    const response = await axios("http://localhost:3001/countries");
+    const response = await axios("/countries");
     const countries = response.data;
     dispatch({ type: GET_COUNTRIES, payload: countries });
   };
@@ -25,7 +25,7 @@ export const getCountries = () => {
 
 export const getCountry = (id) => {
   return async function (dispatch) {
-    const response = await axios(`http://localhost:3001/countries/${id}`);
+    const response = await axios(`/countries/${id}`);
     const country = response.data;
     dispatch({ type: GET_COUNTRY, payload: country });
   };
@@ -61,9 +61,7 @@ export const filterBySeason = (season) => {
 
 export const filterByName = (name) => {
   return async function (dispatch) {
-    const response = await axios(
-      `http://localhost:3001/countries?name=${name}`
-    );
+    const response = await axios(`/countries?name=${name}`);
     const country = response.data;
     dispatch({ type: GET_COUNTRY_NAME, payload: country });
   };
@@ -77,7 +75,7 @@ export const cleanDetail = () => {
 
 export const getActivities = () => {
   return async function (dispatch) {
-    const response = await axios("http://localhost:3001/activities");
+    const response = await axios("/activities");
     const activities = response.data;
     dispatch({ type: GET_ACTIVITIES, payload: activities });
   };
